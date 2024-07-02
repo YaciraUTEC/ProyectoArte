@@ -35,7 +35,7 @@ def input(key):
         quit()
 
 # Crear el suelo del museo
-platform = Entity(model="cube", collider="box", texture="piso", scale=(500, 1, 1500), position=(0, 0, 0))
+platform = Entity(model="cube", collider="box", texture="piso", scale=(500, 1, 2000), position=(0, 0, 0))
 
 
 
@@ -103,9 +103,106 @@ wall_1_1.y = 200
 
 #HABITACION 2
 #Costado izquierdo
+
+wall_1_1 = Entity(model='cube', scale=(5, 240, 300), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -128
+wall_1_1.z = 52
+wall_1_1.y = 120
+
+
+#Costado derecho
+wall_1_1 = Entity(model='cube', scale=(5, 240, 300), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 128
+wall_1_1.z = 52
+wall_1_1.y = 120
+
+#-------------------parte trasera
+#lado izquierdo
+
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -80.5
+wall_1_1.z = 200
+wall_1_1.y = 120
+
+#lado derecho
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 80.5
+wall_1_1.z = 200
+wall_1_1.y = 120
+
+#lado central superior
+wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 0
+wall_1_1.z = 200
+wall_1_1.y = 200
+
+
+
+#Habitación 3
 #Costado izquierdo
 
+wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -128
+wall_1_1.z = 300
+wall_1_1.y = 120
+
+#Costado derecho
+wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 128
+wall_1_1.z = 300
+wall_1_1.y = 120
+
+#-------------------parte trasera
+#lado izquierdo
+
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -80.5
+wall_1_1.z = 400
+wall_1_1.y = 120
+
+#lado derecho
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 80.5
+wall_1_1.z = 400
+wall_1_1.y = 120
+
+#lado central superior
+wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 0
+wall_1_1.z = 400
+wall_1_1.y = 200
+
+#Habitación 4
+#Costado izquierdo
+
+wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -128
+wall_1_1.z = 475
+wall_1_1.y = 120
+
+#Costado derecho
+wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 128
+wall_1_1.z = 475
+wall_1_1.y = 120
+
+#-------------------parte trasera
+#lado izquierdo
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = -80.5
+wall_1_1.z = 550
+wall_1_1.y = 120
 
 
+#lado derecho
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 80.5
+wall_1_1.z = 550
+wall_1_1.y = 120
 
+#lado central superior
+wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1.x = 0
+wall_1_1.z = 550
+wall_1_1.y = 200
 app.run()
