@@ -87,7 +87,7 @@ wall_1_1.z = -300
 wall_1_1.y = 120
 
 #Costado derecho
-wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "fondo_sala.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "pared sala.jpeg", collider='box')
 wall_1_1.x = 128
 wall_1_1.z = -300
 wall_1_1.y = 120
@@ -183,13 +183,13 @@ wall_1_1.y = 200
 #Habitación 3
 #Costado izquierdo
 
-wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "pared sala.jpeg", collider='box')
 wall_1_1.x = -128
 wall_1_1.z = 300
 wall_1_1.y = 120
 
 #Costado derecho
-wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "virtual.jpg", collider='box')
 wall_1_1.x = 128
 wall_1_1.z = 300
 wall_1_1.y = 120
@@ -228,6 +228,14 @@ wall_1_1.x = 128
 wall_1_1.z = 475
 wall_1_1.y = 120
 
+#figura de ceclulares 
+cel1 = Entity(
+    model='cube',            # Modelo del cubo
+    texture='cel1', # Nombre del archivo de imagen
+    scale=(2, 60, 30),         # Escala del cubo
+    position=(-110, 30,220)       # Posición del cubo
+)
+cel1.rotation_y =-45
 #-------------------parte trasera
 #lado izquierdo
 wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
