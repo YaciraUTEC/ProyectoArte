@@ -180,40 +180,48 @@ wall_1_1.y = 200
 
 
 
-#Habitación 3
-#Costado izquierdo
+left_wall = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture="mirror.jpg", collider='box')
+left_wall.x = -128
+left_wall.z = 300
+left_wall.y = 120
 
-wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "pared sala.jpeg", collider='box')
-wall_1_1.x = -128
-wall_1_1.z = 300
-wall_1_1.y = 120
+# Costado derecho
+right_wall = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture="mirror.jpg", collider='box')
+right_wall.x = 128
+right_wall.z = 300
+right_wall.y = 120
 
-#Costado derecho
-wall_1_1 = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture = "virtual.jpg", collider='box')
-wall_1_1.x = 128
-wall_1_1.z = 300
-wall_1_1.y = 120
+# Parte trasera
+# Lado izquierdo
+left_back_wall = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture="wall4.jpg", collider='box')
+left_back_wall.x = -80.5
+left_back_wall.z = 400
+left_back_wall.y = 120
 
-#-------------------parte trasera
-#lado izquierdo
+# Lado derecho
+right_back_wall = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture="wall4.jpg", collider='box')
+right_back_wall.x = 80.5
+right_back_wall.z = 400
+right_back_wall.y = 120
 
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
-wall_1_1.x = -80.5
-wall_1_1.z = 400
-wall_1_1.y = 120
+# Lado central superior
+center_back_wall = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture="wall4.jpg", collider='box')
+center_back_wall.x = 0
+center_back_wall.z = 400
+center_back_wall.y = 200
 
-#lado derecho
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
-wall_1_1.x = 80.5
-wall_1_1.z = 400
-wall_1_1.y = 120
+# Elementos adicionales para representar la falsedad en redes sociales
+cel1 = Entity(model='cube', texture='cel1', scale=(2, 80, 30), position=(-110, 30, 220))
+cel1.rotation_y = -45
 
-#lado central superior
-wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "wall4.jpg", collider='box')
-wall_1_1.x = 0
-wall_1_1.z = 400
-wall_1_1.y = 200
+fake_likes_screen = Entity(model='quad', scale=(60, 40), texture="fakelikes", position=(0, 180, 350))
+fake_comments_screen = Entity(model='quad', scale=(50, 90), texture="fakecoment", position=(0, 90, 300))
+fake_likes_screen1 = Entity(model='quad', scale=(60, 40), texture="emoji", position=(20, 150, 200))
 
+cel2 = Entity(model='cube', texture='cel2', scale=(2, 80, 30), position=(110, 30, 220))
+cel2.rotation_y = 45
+cel3 = Entity(model='cube', texture='cel3',scale=(2, 80, 30), position=(90, 30, 220))
+cel3.rotation_y = -45
 #Habitación 4
 #Costado izquierdo
 
@@ -228,14 +236,6 @@ wall_1_1.x = 128
 wall_1_1.z = 475
 wall_1_1.y = 120
 
-#figura de ceclulares 
-cel1 = Entity(
-    model='cube',            # Modelo del cubo
-    texture='cel1', # Nombre del archivo de imagen
-    scale=(2, 60, 30),         # Escala del cubo
-    position=(-110, 30,220)       # Posición del cubo
-)
-cel1.rotation_y =-45
 #-------------------parte trasera
 #lado izquierdo
 wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
