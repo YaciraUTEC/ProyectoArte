@@ -26,22 +26,61 @@ def aparecer_modelo():
 def update():
     pass
 
-# Cargar el modelo .fbx y asignar una textura
+# Cargar el modelo .obj y asignar una textura
 modelo = load_model('Classicsofadesign.obj')
 modelo1=load_model('Lamp.glb')
 modelo2=load_model('mesa.obj')
-modelo3=load_model('cajon.obj')
+modelo3=load_model('tv_table.obj')
 modelo4=load_model('vasa.obj')
+modelo5=load_model('tele.obj')
+modelo6=load_model('planta.obj')
+modelo7=load_model('velas.obj')
+modelo8=load_model('reloj.fbx')
+modelo9=load_model('Classicsofadesign.obj')
+modelo10=load_model('cojin.obj')
+modelo11=load_model('cojin.obj')
+modelo12=load_model('cojin.obj')
+modelo13=load_model('cojin.obj')
+modelo14=load_model('librero.obj')
+
                                               #   (adelante,arriba o abajo,costados)
-sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -380))
+sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -390))
 lampara = Entity(model=modelo1, scale=35, texture='lampara.png', position=(-90, 5, -250))
-mesa = Entity(model=modelo2, scale=28, texture='madera.jpg', position=(-10, 5, -350))
+planta = Entity(model=modelo6, scale=0.7, texture='planta.png', position=(-90, 5, -460))
+mesa = Entity(model=modelo2, scale=28, texture='madera.jpg', position=(-15, 5, -360))
 #librero = Entity(model=modelo3, scale=0.6, texture='madera1.jpg', position=(90, 5, -350))
-librero = Entity(model=modelo3, scale=60, texture='madera1.jpg', position=(90, 5, -350))
+estante = Entity(model=modelo3, scale=60, texture='im5.jpg', position=(110, 5, -350))
+tele = Entity(model=modelo5, scale=15, texture='im3.png', position=(110, 55, -365))
 jarron = Entity(model=modelo4, scale=20, texture='patron.jpeg', position=(-10, 27, -350))
+velas = Entity(model=modelo7, scale=30, texture='vela.jpg', position=(-10, 27, -370))
+reloj = Entity(model=modelo8, scale=0.35, texture='metal.png', position=(-80, 90, -110))
+sillon2 = Entity(model=modelo9, scale=(25,30,15), texture='im.jpg', position=(-30, 5, -270))
+librero=Entity(model=modelo14, scale=0.6, texture='im5.jpg', position=(110, 5, -210))
+                                                             #(costados,,adelante)
+cojin=Entity(model=modelo10, scale=5, texture='patron.jpeg', position=(-28, 15, -272))
+cojin2=Entity(model=modelo11, scale=5, texture='patron2.jpg', position=(0, 15, -272))
+cojin3=Entity(model=modelo12, scale=5, texture='patron.jpeg', position=(-90, 18, -320))
+
+cojin4=Entity(model=modelo13, scale=5, texture='patron2.jpg', position=(-80, 18, -400))
+
+cojin.rotation_x =45
+cojin.rotation_y =-40
+
+cojin2.rotation_x =45
+cojin2.rotation_y =40
+
+cojin3.rotation_x =45
+cojin3.rotation_y =-40
+
+cojin4.rotation_x =45
+cojin4.rotation_y =-120
+
+
+sillon2.rotation_y =-90
 sala.rotation_y = -180  # Rotar la entidad en el eje Y
-librero.rotation_y =-90
+tele.rotation_y =-90
 jarron.rotation_x =-90
+librero.rotation_y =-90
 player = FirstPersonController(speed=150, position=(0, 100,-900), scale=30)  # Nueva posición del jugador
 Sky()
 
@@ -102,7 +141,15 @@ img6= Entity(model="cube",scale=(60,20,0), texture="nombre.png",collider="box",p
 img7= Entity(model="cube",scale=(18,18,0), texture="check.png",collider="box",position=(-20, 220,-505))
 img8= Entity(model="cube",scale=(16,15,0), texture="puntos.png",collider="box",position=(112, 220,-505))
 
-
+l1= Entity(model="cube",scale=(0,21,35), texture="libros.png",collider="box",position=(90, 20, -210))
+l2= Entity(model="cube",scale=(0,21,35), texture="libros1.png",collider="box",position=(90, 20, -175))
+l3= Entity(model="cube",scale=(0,21,35), texture="libros2.png",collider="box",position=(90, 20, -245))
+l4= Entity(model="cube",scale=(0,21,35), texture="libros3.png",collider="box",position=(90, 55, -245))
+l5= Entity(model="cube",scale=(0,21,35), texture="libros4.png",collider="box",position=(90, 55, -210))
+l6= Entity(model="cube",scale=(0,21,35), texture="libro5.png",collider="box",position=(90, 55, -175))
+l7= Entity(model="cube",scale=(0,21,35), texture="libros3.png",collider="box",position=(90, 85, -210))
+l8= Entity(model="cube",scale=(0,21,35), texture="libros2.png",collider="box",position=(90, 85, -175))
+l9= Entity(model="cube",scale=(0,21,35), texture="libros1.png",collider="box",position=(90, 85, -245))
 
 #-------------------parte trasera
 #lado izquierdo
