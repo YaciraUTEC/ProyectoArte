@@ -42,6 +42,7 @@ modelo11=load_model('cojin.obj')
 modelo12=load_model('cojin.obj')
 modelo13=load_model('cojin.obj')
 modelo14=load_model('librero.obj')
+modelo15=load_model('lab.FBX')
 
                                               #   (adelante,arriba o abajo,costados)
 sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -390))
@@ -56,12 +57,14 @@ velas = Entity(model=modelo7, scale=30, texture='vela.jpg', position=(-10, 27, -
 reloj = Entity(model=modelo8, scale=0.35, texture='metal.png', position=(-80, 90, -110))
 sillon2 = Entity(model=modelo9, scale=(25,30,15), texture='im.jpg', position=(-30, 5, -270))
 librero=Entity(model=modelo14, scale=0.6, texture='im5.jpg', position=(110, 5, -210))
+laberinto = Entity(model=modelo15, scale=(0.08, 0.05, 0.08), texture='pared.jpg', position=(0, 0, 52))
                                                              #(costados,,adelante)
 cojin=Entity(model=modelo10, scale=5, texture='patron.jpeg', position=(-28, 15, -272))
 cojin2=Entity(model=modelo11, scale=5, texture='patron2.jpg', position=(0, 15, -272))
 cojin3=Entity(model=modelo12, scale=5, texture='patron.jpeg', position=(-90, 18, -320))
 
 cojin4=Entity(model=modelo13, scale=5, texture='patron2.jpg', position=(-80, 18, -400))
+
 
 cojin.rotation_x =45
 cojin.rotation_y =-40
