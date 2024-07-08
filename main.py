@@ -261,17 +261,37 @@ center_back_wall.z = 400
 center_back_wall.y = 200
 
 # Elementos adicionales para representar la falsedad en redes sociales
-cel1 = Entity(model='cube', texture='cel1', scale=(2, 80, 30), position=(-110, 30, 220))
+cel1 = Entity(model='cube', texture='cel1.png', scale=(2, 80, 30), position=(-110, 40, 220))
 cel1.rotation_y = -45
 
-fake_likes_screen = Entity(model='quad', scale=(60, 40), texture="fakelikes", position=(0, 180, 350))
-fake_comments_screen = Entity(model='quad', scale=(50, 90), texture="fakecoment", position=(0, 90, 300))
-fake_likes_screen1 = Entity(model='quad', scale=(60, 40), texture="emoji", position=(20, 150, 200))
+#fake_likes_screen = Entity(model='quad', scale=(60, 40), texture="fakelikes", position=(0, 180, 350))
+fake_comments_screen = Entity(model='cube', scale=(60,125, 10), texture="celular.png", position=(0, 70, 300))
+def switch_publication():
+    p1.visible = not p1.visible
+    p2.visible = not p2.visible
+p1=Entity(
+    model='quad', 
+    scale=(50, 50), 
+    texture="publicacion", 
+    position=(0, 85, 294),
+    collider='box',
+    on_click=switch_publication
+    )
+p2=Entity(
+    model='quad', 
+    scale=(50, 50), 
+    texture="publicacion2", 
+    position=(0, 85, 294),
+    collider='box',
+    on_click=switch_publication,
+    visible=False)
+#fake_likes_screen1 = Entity(model='quad', scale=(60, 40), texture="emoji", position=(20, 150, 200))
+                                                                        #delante y atras,arriba y abajo, costados     
+cel2 = Entity(model='cube', texture='cel2', scale=(2, 80, 30), position=(110, 40, 220))
+cel2.rotation_y = -145
+cel3 = Entity(model='cube', texture='cel3',scale=(2, 80, 30), position=(80, 40, 210))
+cel3.rotation_y = -90
 
-cel2 = Entity(model='cube', texture='cel2', scale=(2, 80, 30), position=(110, 30, 220))
-cel2.rotation_y = 45
-cel3 = Entity(model='cube', texture='cel3',scale=(2, 80, 30), position=(90, 30, 220))
-cel3.rotation_y = -45
 #Habitación 4
 #Costado izquierdo
 
