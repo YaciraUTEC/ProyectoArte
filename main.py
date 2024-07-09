@@ -2,6 +2,8 @@ from turtle import position
 from ursina import *
 import pygame
 from pydub import AudioSegment
+from PIL import Image
+import pillow_avif  
 from ursina.prefabs.first_person_controller import FirstPersonController
 
 
@@ -360,6 +362,38 @@ left_wall.x = -30
 left_wall.z = 150
 left_wall.y = 50
 
+# Emojis flotantes
+
+emoj9 = Entity(model='sphere', texture='e9l.png', scale=(15, 40, 40), position=(70,150,-70))
+emoj9.rotation_y = 100
+emoj8 = Entity(model='sphere', texture='e8l.jpg', scale=(15,50,50), position=(70,130,30))
+emoj8.rotation_y = 100
+emoj7 = Entity(model='sphere', texture='e7l.png', scale=(15,30,20), position=(70,150,120))
+emoj7.rotation_y = 60
+
+emoj6 = Entity(model='sphere', texture='e6l.png', scale=(15, 60, 60), position=(-70,150,-60))
+emoj6.rotation_y = 60
+emoj5 = Entity(model='sphere', texture='e5l.png', scale=(15, 40, 40), position=(-70,130,20))
+emoj5.rotation_y = 60
+emoj4 = Entity(model='sphere', texture='e4l.png', scale=(15, 40, 40), position=(-70,150,110))
+emoj4.rotation_y = 110
+
+emoj3 = Entity(model='sphere', texture='e3l.png', scale=(15,30,20), position=(0,150,-60))
+emoj3.rotation_y = 110
+emoj2 = Entity(model='sphere', texture='e2l.jpg', scale=(15,30,20), position=(0,130,30))
+emoj2.rotation_y = 110
+emoj1 = Entity(model='sphere', texture='e1l.png', scale=(15, 50, 50), position=(0,150,110))
+emoj1.rotation_y = 120
+
+movement_speed = 6
+
+def update():
+    global movement_speed
+    for emoj in [emoj1, emoj2, emoj3, emoj4, emoj5, emoj6, emoj7, emoj8, emoj9]:
+        emoj.y += movement_speed * time.dt
+        emoj.rotation_y += 100 * time.dt  # Rotar en el eje Y
+        if emoj.y > 100 and emoj.y < 150:  # límites de movimiento
+            movement_speed = -movement_speed
 
 
 
