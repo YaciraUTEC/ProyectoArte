@@ -42,7 +42,6 @@ modelo11=load_model('cojin.obj')
 modelo12=load_model('cojin.obj')
 modelo13=load_model('cojin.obj')
 modelo14=load_model('librero.obj')
-modelo15=load_model('lab.FBX')
 
                                               #   (adelante,arriba o abajo,costados)
 sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -390))
@@ -57,7 +56,6 @@ velas = Entity(model=modelo7, scale=30, texture='vela.jpg', position=(-10, 27, -
 reloj = Entity(model=modelo8, scale=0.35, texture='metal.png', position=(-80, 90, -110))
 sillon2 = Entity(model=modelo9, scale=(25,30,15), texture='im.jpg', position=(-30, 5, -270))
 librero=Entity(model=modelo14, scale=0.6, texture='im5.jpg', position=(110, 5, -210))
-laberinto = Entity(model=modelo15, scale=(0.08, 0.05, 0.08), texture='pared.jpg', position=(0, 0, 52))
                                                              #(costados,,adelante)
 cojin=Entity(model=modelo10, scale=5, texture='patron.jpeg', position=(-28, 15, -272))
 cojin2=Entity(model=modelo11, scale=5, texture='patron2.jpg', position=(0, 15, -272))
@@ -84,7 +82,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,-900), scale=30)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,-900), scale=25)  # Nueva posición del jugador
 Sky()
 
 def input(key):
@@ -228,7 +226,143 @@ wall_1_1.x = 0
 wall_1_1.z = 200
 wall_1_1.y = 200
 
+#LABERINTO ------------------------
 
+# 1
+left_wall = Entity(model='cube', scale=(60, 100, 7), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -60
+left_wall.z = -75
+left_wall.y = 50
+
+#2
+left_wall = Entity(model='cube', scale=(100, 100, 7), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 45
+left_wall.z = -75
+left_wall.y = 50
+
+#3
+left_wall = Entity(model='cube', scale=(5, 100, 30), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -2.5
+left_wall.z = -56.5
+left_wall.y = 50
+
+#4
+left_wall = Entity(model='cube', scale=(50, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -25
+left_wall.z = -39.5
+left_wall.y = 50
+
+#5
+left_wall = Entity(model='cube', scale=(5, 100, 30), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -47.5
+left_wall.z = -22
+left_wall.y = 50
+
+#6
+left_wall = Entity(model='cube', scale=(50, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -25
+left_wall.z = -4.5
+left_wall.y = 50
+
+
+#15
+left_wall = Entity(model='cube', scale=(5, 100, 250), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 92.5
+left_wall.z = 54
+left_wall.y = 50
+
+#16
+left_wall = Entity(model='cube', scale=(5, 100, 250), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -87.5
+left_wall.z = 53
+left_wall.y = 50
+
+#7
+left_wall = Entity(model='cube', scale=(70, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 55
+left_wall.z = -39.5
+left_wall.y = 50
+
+#8
+left_wall = Entity(model='cube', scale=(5, 100, 30), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 22.5
+left_wall.z = -22
+left_wall.y = 50
+
+#9
+left_wall = Entity(model='cube', scale=(40, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 40
+left_wall.z = -4.5
+left_wall.y = 50
+
+#10
+left_wall = Entity(model='cube', scale=(120, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -26
+left_wall.z = 30
+left_wall.y = 50
+
+#17
+left_wall = Entity(model='cube', scale=(30, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 80
+left_wall.z = 30
+left_wall.y = 50
+
+
+#18
+left_wall = Entity(model='cube', scale=(5, 100, 30), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 31.5
+left_wall.z = 47
+left_wall.y = 50
+
+#19
+
+left_wall = Entity(model='cube', scale=(90, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -16
+left_wall.z = 59.5
+left_wall.y = 50
+
+#20
+left_wall = Entity(model='cube', scale=(5, 100, 30), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -63
+left_wall.z = 72
+left_wall.y = 50
+
+#22
+
+left_wall = Entity(model='cube', scale=(5, 100, 70), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 67.5
+left_wall.z = 67.5
+left_wall.y = 50
+
+#23
+left_wall = Entity(model='cube', scale=(90, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 20
+left_wall.z = 100
+left_wall.y = 50
+
+
+#23
+left_wall = Entity(model='cube', scale=(90, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = 50
+left_wall.z = 181
+left_wall.y = 50
+
+#24
+left_wall = Entity(model='cube', scale=(60, 100, 5), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -60
+left_wall.z = 180
+left_wall.y = 50
+
+#25
+left_wall = Entity(model='cube', scale=(5, 100, 60), color=color.white, texture="pared.jpg", collider='box')
+left_wall.x = -30
+left_wall.z = 150
+left_wall.y = 50
+
+
+
+
+#Habitacion 3
 
 left_wall = Entity(model='cube', scale=(5, 240, 200), color=color.white, texture="virtual2.jpg", collider='box')
 left_wall.x = -128
