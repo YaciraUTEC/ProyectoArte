@@ -42,6 +42,7 @@ modelo11=load_model('cojin.obj')
 modelo12=load_model('cojin.obj')
 modelo13=load_model('cojin.obj')
 modelo14=load_model('librero.obj')
+modelo16=load_model('man_free.obj')
 
                                               #   (adelante,arriba o abajo,costados)
 sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -390))
@@ -427,36 +428,67 @@ cel3 = Entity(model='cube', texture='cel3',scale=(2, 80, 30), position=(80, 40, 
 cel3.rotation_y = -90
 
 #Habitación 4
+#parte de adelante
+# Lado izquierdo
+left_back_wall = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture="oscuro.jpeg", collider='box')
+left_back_wall.x = -80.5
+left_back_wall.z = 405
+left_back_wall.y = 120
+
+# Lado derecho
+right_back_wall2 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture="oscuro.jpeg", collider='box')
+right_back_wall2.x = 80.5
+right_back_wall2.z = 405
+right_back_wall2.y = 120
+
+# Lado central superior
+center_back_wall = Entity(model='cube', scale=(60, 80, 5), color=color.white, texture="oscuro.jpeg", collider='box')
+center_back_wall.x = 0
+center_back_wall.z = 405
+center_back_wall.y = 200
 #Costado izquierdo
 
-wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = -128
 wall_1_1.z = 475
 wall_1_1.y = 120
 
 #Costado derecho
-wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 150), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = 128
 wall_1_1.z = 475
 wall_1_1.y = 120
 
 #-------------------parte trasera
 #lado izquierdo
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = -80.5
 wall_1_1.z = 550
 wall_1_1.y = 120
 
 
 #lado derecho
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = 80.5
 wall_1_1.z = 550
 wall_1_1.y = 120
 
 #lado central superior
-wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "wall4.jpg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = 0
 wall_1_1.z = 550
 wall_1_1.y = 200
+techo = Entity(model='cube', scale=(240, 5, 150), color=color.white, texture = "oscuro.jpeg", collider='box')
+techo.x = 0
+techo.z = 480
+techo.y = 230
+presona=Entity(model=modelo16, scale=0.2, texture='pared.jpg', position=(0, 0, 480))
+e1=Entity(model='quad', scale=(30, 45), texture="e1.jpg", position=(120, 80, 430),)
+e1.rotation_y = 90
+e2=Entity(model='quad', scale=(30, 45), texture="e2.jpg", position=(120, 120, 470),)
+e2.rotation_y = 90
+e3=Entity(model='quad', scale=(30, 45), texture="e3.jpg", position=(120, 80, 510),)
+e3.rotation_y = 90
+e4=Entity(model='quad', scale=(40, 45), texture="e4.png", position=(120, 40, 470),)
+e4.rotation_y = 90
 app.run()
