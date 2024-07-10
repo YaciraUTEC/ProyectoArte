@@ -7,6 +7,8 @@ import pillow_avif
 from ursina.prefabs.first_person_controller import FirstPersonController
 import time
 import os
+import cv2
+import numpy as np
 
 
 
@@ -389,13 +391,6 @@ emoj1.rotation_y = 120
 
 movement_speed = 6
 
-def update():
-    global movement_speed
-    for emoj in [emoj1, emoj2, emoj3, emoj4, emoj5, emoj6, emoj7, emoj8, emoj9]:
-        emoj.y += movement_speed * time.dt
-        emoj.rotation_y += 100 * time.dt  # Rotar en el eje Y
-        if emoj.y > 100 and emoj.y < 150:  # límites de movimiento
-            movement_speed = -movement_speed
 
 
 
@@ -485,6 +480,15 @@ animated_entity1 = Entity(model='quad', scale=(60, 100), position=(100, 90, 300)
 animated_entity2 = Entity(model='quad', scale=(60, 100), position=(-100, 90, 300))
 
 def update():
+
+    #movimiento de emojis
+    global movement_speed
+    for emoj in [emoj1, emoj2, emoj3, emoj4, emoj5, emoj6, emoj7, emoj8, emoj9]:
+        emoj.y += movement_speed * time.dt
+        emoj.rotation_y += 100 * time.dt  # Rotar en el eje Y
+        if emoj.y > 100 and emoj.y < 150:  # límites de movimiento
+            movement_speed = -movement_speed
+            
     # Animar el primer GIF cambiando la textura en cada frame
     frame1 = int(time.time() * 10) % len(gif1_images)  # Cambia 10 para controlar la velocidad
     animated_entity1.texture = gif1_images[frame1]
@@ -492,6 +496,17 @@ def update():
     # Animar el segundo GIF cambiando la textura en cada frame
     frame2 = int(time.time() * 10) % len(gif2_images)  # Cambia 10 para controlar la velocidad
     animated_entity2.texture = gif2_images[frame2]
+
+    
+    #camara tiempo real
+    ret, frame = cap.read()
+    if ret:
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convertir de BGR a RGB
+        frame = np.flip(frame, axis=1)  # Voltear la imagen para simular un espejo
+        image = Image.fromarray(frame)
+        mirror.texture = Texture(image)
+
+
 def switch_publication():
     p1.visible = not p1.visible
     p2.visible = not p2.visible
@@ -582,4 +597,54 @@ e3=Entity(model='quad', scale=(30, 45), texture="e3.jpg", position=(120, 80, 510
 e3.rotation_y = 90
 e4=Entity(model='quad', scale=(40, 45), texture="e4.png", position=(120, 40, 470),)
 e4.rotation_y = 90
+
+
+
+
+
+#tomar foto en tiempo real
+
+cap = cv2.VideoCapture(0)
+
+# Verificar si la cámara se abrió correctamente
+if not cap.isOpened():
+    print("Error: No se pudo abrir la cámara.")
+    exit()
+
+# Crear una textura inicial
+ret, frame = cap.read()
+if not ret:
+    print("Error: No se pudo leer el frame de la cámara.")
+    exit()
+
+frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convertir de BGR a RGB
+frame = np.flip(frame, axis=1)  # Voltear la imagen para simular un espejo
+image = Image.fromarray(frame)
+texture = Texture(image)
+
+# Definir la entidad espejo
+mirror = Entity(model='cube', scale=(5,70,70), position=(-70,80,470), texture='e1.jpg')
+
+# Definir un bloque en Ursina para mostrar la imagen capturada
+captured_image_block = Entity(model='cube', scale=(10,70,70), position=(-70, 80, 470), texture=None)
+
+
+def input(key):
+    if key == 'escape':
+        cap.release()
+        app.userExit()
+
+    elif key == 't':
+        # Tomar una foto
+        ret, frame = cap.read()
+        if ret:
+            # Guardar la imagen capturada
+            filename = 'captured_photo.png'
+            cv2.imwrite(filename, cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            
+            # Mostrar la imagen capturada en el bloque de Ursina
+            captured_image_block.texture = filename
+            captured_image_block.scale = (5,70,70)
+
+
 app.run()
