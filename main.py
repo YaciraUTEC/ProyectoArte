@@ -602,8 +602,7 @@ e4.rotation_y = 90
 
 
 
-#tomar foto en tiempo real
-
+# Configuración de la cámara
 cap = cv2.VideoCapture(0)
 
 # Verificar si la cámara se abrió correctamente
@@ -617,34 +616,34 @@ if not ret:
     print("Error: No se pudo leer el frame de la cámara.")
     exit()
 
-frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convertir de BGR a RGB
+# Convertir de BGR a RGB y voltear la imagen
+frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 frame = np.flip(frame, axis=1)  # Voltear la imagen para simular un espejo
 image = Image.fromarray(frame)
-texture = Texture(image)
+image.save('initial_texture.png')  # Guardar la imagen inicial
 
 # Definir la entidad espejo
-mirror = Entity(model='cube', scale=(5,70,70), position=(-70,80,470), texture='e1.jpg')
+mirror = Entity(model='cube', scale=(5, 70, 70), position=(-70, 80, 470), texture='initial_texture.png')
 
 # Definir un bloque en Ursina para mostrar la imagen capturada
-captured_image_block = Entity(model='cube', scale=(10,70,70), position=(-70, 80, 470), texture=None)
-
+captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture=None)
 
 def input(key):
     if key == 'escape':
         cap.release()
         app.userExit()
-
     elif key == 't':
         # Tomar una foto
         ret, frame = cap.read()
         if ret:
-            # Guardar la imagen capturada
+            # Convertir de BGR a RGB y voltear la imagen
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = np.flip(frame, axis=1)
             filename = 'captured_photo.png'
-            cv2.imwrite(filename, cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            Image.fromarray(frame).save(filename)  # Guardar la imagen en formato compatible
             
             # Mostrar la imagen capturada en el bloque de Ursina
             captured_image_block.texture = filename
-            captured_image_block.scale = (5,70,70)
-
+            captured_image_block.scale = (5, 70, 70)
 
 app.run()
