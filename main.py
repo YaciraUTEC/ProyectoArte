@@ -5,6 +5,8 @@ from pydub import AudioSegment
 from PIL import Image
 import pillow_avif  
 from ursina.prefabs.first_person_controller import FirstPersonController
+import time
+import os
 
 
 
@@ -429,12 +431,67 @@ center_back_wall.x = 0
 center_back_wall.z = 400
 center_back_wall.y = 200
 
+#center_back_wall = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture="v1.jpg", collider='box')
+#center_back_wall.x = 0
+#center_back_wall.z = 100
+#center_back_wall.y = 200
+
+
+floor = Entity(model='cube', scale=(250, 5, 240), color=color.white, texture="v1.jpg", collider='box')
+floor.x = 0
+floor.z = 300  # Centrado entre las paredes frontales y traseras
+floor.y = 0  # Ajustado para estar en el nivel inferior de las paredes
+
+ceiling = Entity(model='cube', scale=(250, 5, 240), color=color.white, texture="v1.jpg", collider='box')
+ceiling.x = 0
+ceiling.z = 300
+ceiling.y = 240
+
 # Elementos adicionales para representar la falsedad en redes sociales
-cel1 = Entity(model='cube', texture='cel1.png', scale=(2, 80, 30), position=(-110, 40, 220))
+cel1 = Entity(model='cube', texture='cel1.png', scale=(2, 80, 50), position=(-110, 40, 220))
 cel1.rotation_y = -45
 
-#fake_likes_screen = Entity(model='quad', scale=(60, 40), texture="fakelikes", position=(0, 180, 350))
+fake_likes_screen = Entity(model='cube', scale=(80,25, 100), texture="fakelikes",position=(0, 240, 300))
 fake_comments_screen = Entity(model='cube', scale=(60,125, 10), texture="celular.png", position=(0, 70, 300))
+
+#colocar gif
+if not os.path.exists('socialmedia_frames'):
+    os.makedirs('socialmedia_frames')
+
+gif = Image.open('socialmedia.gif')
+
+frame_count = gif.n_frames
+for i in range(frame_count):
+    gif.seek(i)
+    gif.save(f'socialmedia_frames/frame_{i}.png')
+
+
+gif2 = Image.open('social2.gif')
+
+if not os.path.exists('social2_frames'):
+    os.makedirs('social2_frames')
+
+frame_count2 = gif2.n_frames
+for i in range(frame_count2):
+    gif2.seek(i)
+    gif2.save(f'social2_frames/frame_{i}.png')
+gif1_images = [f'socialmedia_frames/frame_{i}.png' for i in range(frame_count)]
+
+gif2_images = [f'social2_frames/frame_{i}.png' for i in range(frame_count2)]
+
+animated_entity1 = Entity(model='quad', scale=(60, 100), position=(100, 90, 300))
+
+# Entidad para animar el segundo GIF en la pared izquierda
+animated_entity2 = Entity(model='quad', scale=(60, 100), position=(-100, 90, 300))
+
+def update():
+    # Animar el primer GIF cambiando la textura en cada frame
+    frame1 = int(time.time() * 10) % len(gif1_images)  # Cambia 10 para controlar la velocidad
+    animated_entity1.texture = gif1_images[frame1]
+
+    # Animar el segundo GIF cambiando la textura en cada frame
+    frame2 = int(time.time() * 10) % len(gif2_images)  # Cambia 10 para controlar la velocidad
+    animated_entity2.texture = gif2_images[frame2]
 def switch_publication():
     p1.visible = not p1.visible
     p2.visible = not p2.visible
