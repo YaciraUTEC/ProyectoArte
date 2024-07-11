@@ -97,7 +97,7 @@ def input(key):
         quit()
 
 # Crear el suelo 
-platform = Entity(model="cube", collider="box", texture="piso", scale=(500, 1, 2000), position=(0, 0, 0))
+platform = Entity(model="cube", collider="box" ,texture="blanco.jpg", scale=(500, 1, 2000), position=(0, 0, 0))
 
 
 
@@ -179,6 +179,11 @@ wall_1_1 = Entity(model='cube', scale=(65, 80, 5), color=color.white, texture = 
 wall_1_1.x = 0
 wall_1_1.z = -105
 wall_1_1.y = 200
+
+piso1 = Entity(model='cube', scale=(245, 5, 395), color=color.white, texture = "pisouno.jpg", collider='box')
+piso1.x = 0
+piso1.z = -300#avanzar 
+piso1.y = 0
 
 
 #HABITACION 2
@@ -391,6 +396,10 @@ emoj1.rotation_y = 120
 
 movement_speed = 6
 
+piso2 = Entity(model='cube', scale=(245, 5, 305), color=color.white, texture = "piedra.jpg", collider='box')
+piso2.x = 0
+piso2.z = 50#avanzar 
+piso2.y = 0
 
 
 
@@ -432,7 +441,7 @@ center_back_wall.y = 200
 #center_back_wall.y = 200
 
 
-floor = Entity(model='cube', scale=(250, 5, 240), color=color.white, texture="v1.jpg", collider='box')
+floor = Entity(model='cube', scale=(245, 5, 210), color=color.white, texture="v1.jpg", collider='box')
 floor.x = 0
 floor.z = 300  # Centrado entre las paredes frontales y traseras
 floor.y = 0  # Ajustado para estar en el nivel inferior de las paredes
@@ -567,27 +576,32 @@ wall_1_1.y = 120
 
 #-------------------parte trasera
 #lado izquierdo
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
-wall_1_1.x = -80.5
-wall_1_1.z = 550
-wall_1_1.y = 120
-
-
-#lado derecho
-wall_1_1 = Entity(model='cube', scale=(100, 240, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
-wall_1_1.x = 80.5
-wall_1_1.z = 550
-wall_1_1.y = 120
-
-#lado central superior
-wall_1_1 = Entity(model='cube', scale=(220, 80, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(255, 240, 5), color=color.white, texture = "oscuro.jpeg", collider='box')
 wall_1_1.x = 0
 wall_1_1.z = 550
-wall_1_1.y = 200
+wall_1_1.y = 120
+
+# Función para mover al jugador a la posición inicial
+def move_player_to_start():
+    player.position=(0, 100,-900)  # Ajusta esta posición a la que desees que sea la posición inicial
+
+#agregar una imagen al centro de wall_1_1
+img9= Entity(model="quad",scale=(20,20), texture="boton.png",collider="box",on_click=move_player_to_start)
+img9.x = 0
+img9.z = 540
+img9.y = 50
+
+
+
 techo = Entity(model='cube', scale=(240, 5, 150), color=color.white, texture = "oscuro.jpeg", collider='box')
 techo.x = 0
 techo.z = 480
 techo.y = 230
+
+piso4 = Entity(model='cube', scale=(250, 5, 150), color=color.white, texture = "espejo.png", collider='box')
+piso4.x = 0
+piso4.z = 480#avanzar 
+piso4.y = 0
 presona=Entity(model=modelo16, scale=0.2, texture='pared.jpg', position=(0, 0, 480))
 e1=Entity(model='quad', scale=(30, 45), texture="e1.jpg", position=(120, 80, 430),)
 e1.rotation_y = 90
