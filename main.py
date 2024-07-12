@@ -89,7 +89,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,-900), scale=25)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,580), scale=25)  # Nueva posición del jugador
 Sky()
 
 def input(key):
@@ -396,10 +396,41 @@ emoj1.rotation_y = 120
 
 movement_speed = 6
 
-piso2 = Entity(model='cube', scale=(245, 5, 305), color=color.white, texture = "piedra.jpg", collider='box')
+piso2 = Entity(model='cube', scale=(245, 5, 305), color=color.white, texture = "piso3.jpg", collider='box')
 piso2.x = 0
 piso2.z = 50#avanzar 
 piso2.y = 0
+
+f1 = Entity(model='quad', scale=(20, 20), color=color.white, texture="f1.png", collider='box')
+f1.x = -18
+f1.z = -50
+f1.y = 62
+
+f1 = Entity(model='quad', scale=(30, 30), color=color.white, texture="f3.png", collider='box')
+f1.x = 23
+f1.z = -85
+f1.y = 62
+
+
+f1 = Entity(model='quad', scale=(15, 15), color=color.white, texture="f2.png", collider='box')
+f1.x = -62
+f1.z = 2
+f1.y = 62
+
+f1 = Entity(model='quad', scale=(25, 25), color=color.white, texture="f4.png", collider='box')
+f1.x = 46
+f1.z = 80
+f1.y = 55
+
+f1 = Entity(model='quad', scale=(45,45), color=color.white, texture="f5.png", collider='box')
+f1.x = -58
+f1.z = 175
+f1.y = 62
+
+f1 = Entity(model='quad', scale=(60,60), color=color.white, texture="f6.png", collider='box')
+f1.x = 50
+f1.z = 175
+f1.y = 62
 
 
 
@@ -495,7 +526,7 @@ def update():
     for emoj in [emoj1, emoj2, emoj3, emoj4, emoj5, emoj6, emoj7, emoj8, emoj9]:
         emoj.y += movement_speed * time.dt
         emoj.rotation_y += 100 * time.dt  # Rotar en el eje Y
-        if emoj.y > 100 and emoj.y < 150:  # límites de movimiento
+        if emoj.y > 70 and emoj.y < 120:  # límites de movimiento
             movement_speed = -movement_speed
             
     # Animar el primer GIF cambiando la textura en cada frame
@@ -640,7 +671,7 @@ image.save('initial_texture.png')  # Guardar la imagen inicial
 mirror = Entity(model='cube', scale=(5, 70, 70), position=(-70, 80, 470), texture='initial_texture.png')
 
 # Definir un bloque en Ursina para mostrar la imagen capturada
-captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture=None)
+captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture='espejo_c')
 
 def input(key):
     if key == 'escape':

@@ -1,67 +1,58 @@
 from ursina import *
+from PIL import Image
 import cv2
 import numpy as np
-from PIL import Image
-import os
 
+# Función para abrir la cámara
+def abrir_camara():
+    cap = cv2.VideoCapture(0)  # Cambia a 1 si no funciona
+    if not cap.isOpened():
+        print("Error: No se pudo abrir la cámara.")
+        exit()
+    return cap
+
+# Inicializa la aplicación Ursina
 app = Ursina()
 
-# Inicializar la captura de video con OpenCV
-cap = cv2.VideoCapture(0)
+# Captura de video de la cámara
+cap = abrir_camara()
 
-# Verificar si la cámara se abrió correctamente
-if not cap.isOpened():
-    print("Error: No se pudo abrir la cámara.")
-    exit()
-
-# Definir una textura inicial
-ret, frame = cap.read()
-if not ret:
-    print("Error: No se pudo leer el frame de la cámara.")
-    exit()
-
-# Convertir de BGR a RGB y voltear la imagen
-frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-frame = np.flip(frame, axis=1)
-
-# Crear una imagen PIL desde el frame
-image = Image.fromarray(frame)
-texture = Texture(image)
-
-# Definir la entidad espejo
-mirror = Entity(model='quad', scale=(2, 2), position=(0, 1, -3), texture=texture)
-
-# Definir un bloque en Ursina para mostrar la imagen capturada
-captured_image_block = Entity(model='quad', scale=(2, 2), position=(2.5, 1, -3), texture=None)
+# Definir un bloque para mostrar el feed de la cámara
+captured_image_block = Entity(model='quad', scale=(5, 3), position=(0, 0, 5), texture=None)
 
 def update():
-    global frame
-
     ret, frame = cap.read()
     if ret:
-        # Convertir de BGR a RGB y voltear la imagen
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame = np.flip(frame, axis=1)
-
-        # Actualizar la textura del espejo
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convertir de BGR a RGB
+        frame = np.flip(frame, axis=1)  # Voltear la imagen para simular un espejo
         image = Image.fromarray(frame)
-        mirror.texture = Texture(image)
+        captured_image_block.texture = Texture(image)
+
+    # Movimiento de la cámara
+    if held_keys['w']:
+        camera.position.z -= 0.1
+    if held_keys['s']:
+        camera.position.z += 0.1
+    if held_keys['a']:
+        camera.position.x -= 0.1
+    if held_keys['d']:
+        camera.position.x += 0.1
 
 def input(key):
     if key == 'escape':
         cap.release()
-        app.quit()
-
+        app.userExit()
     elif key == 't':
-        # Tomar una foto
         ret, frame = cap.read()
         if ret:
-            # Guardar la imagen capturada
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = np.flip(frame, axis=1)
             filename = 'captured_photo.png'
-            cv2.imwrite(filename, cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            
-            # Mostrar la imagen capturada en el bloque de Ursina
-            captured_image_block.texture = filename
-            captured_image_block.scale = (1.5, 1)
+            Image.fromarray(frame).save(filename)  # Guardar la imagen en formato compatible
+            captured_image_block.texture = filename  # Mostrar la imagen capturada
 
+# Ejecuta la aplicación
 app.run()
+
+# Libera la captura de video
+cap.release()
