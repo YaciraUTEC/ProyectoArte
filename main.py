@@ -672,6 +672,8 @@ mirror = Entity(model='cube', scale=(5, 70, 70), position=(-70, 80, 470), textur
 
 # Definir un bloque en Ursina para mostrar la imagen capturada
 captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture='espejo_c')
+cl= Entity(model='quad', scale=(10, 10), position=(-60, 50, 495), texture='cl.png')
+cl.rotation_y= -90
 
 def input(key):
     if key == 'escape':
