@@ -89,7 +89,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,580), scale=25)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,-900), scale=25)  # Nueva posición del jugador
 Sky()
 
 def input(key):
@@ -614,7 +614,7 @@ wall_1_1.y = 120
 
 # Función para mover al jugador a la posición inicial
 def move_player_to_start():
-    player.position=(0, 100,-900)  # Ajusta esta posición a la que desees que sea la posición inicial
+    player.position=(0, 100,-900)  
 
 #agregar una imagen al centro de wall_1_1
 img9= Entity(model="quad",scale=(20,20), texture="boton.png",collider="box",on_click=move_player_to_start)
