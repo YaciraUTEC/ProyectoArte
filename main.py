@@ -526,8 +526,8 @@ def update():
     for emoj in [emoj1, emoj2, emoj3, emoj4, emoj5, emoj6, emoj7, emoj8, emoj9]:
         emoj.y += movement_speed * time.dt
         emoj.rotation_y += 100 * time.dt  # Rotar en el eje Y
-        if emoj.y > 70 and emoj.y < 120:  # límites de movimiento
-            movement_speed = -movement_speed
+     #   if emoj.y > 70 and emoj.y < 120:  # límites de movimiento
+        movement_speed = -movement_speed
             
     # Animar el primer GIF cambiando la textura en cada frame
     frame1 = int(time.time() * 10) % len(gif1_images)  # Cambia 10 para controlar la velocidad
@@ -622,6 +622,11 @@ img9.x = 0
 img9.z = 540
 img9.y = 50
 
+b1= Entity(model="quad",scale=(30,10), texture="incio.png",collider="box")
+b1.x = 0
+b1.z = 540
+b1.y = 65
+
 
 
 techo = Entity(model='cube', scale=(240, 5, 150), color=color.white, texture = "oscuro.jpeg", collider='box')
@@ -633,7 +638,8 @@ piso4 = Entity(model='cube', scale=(250, 5, 150), color=color.white, texture = "
 piso4.x = 0
 piso4.z = 480#avanzar 
 piso4.y = 0
-presona=Entity(model=modelo16, scale=0.2, texture='pared.jpg', position=(0, 0, 480))
+#Persona
+presona=Entity(model=modelo16, scale=0.2, texture='metalico1.png', position=(0, 0, 480))
 e1=Entity(model='quad', scale=(30, 45), texture="e1.jpg", position=(120, 80, 430),)
 e1.rotation_y = 90
 e2=Entity(model='quad', scale=(30, 45), texture="e2.jpg", position=(120, 120, 470),)
@@ -671,8 +677,8 @@ image.save('initial_texture.png')  # Guardar la imagen inicial
 mirror = Entity(model='cube', scale=(5, 70, 70), position=(-70, 80, 470), texture='initial_texture.png')
 
 # Definir un bloque en Ursina para mostrar la imagen capturada
-captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture='espejo_c')
-cl= Entity(model='quad', scale=(10, 10), position=(-60, 50, 495), texture='cl.png')
+captured_image_block = Entity(model='cube', scale=(10, 70, 70), position=(-70, 80, 470), texture='e1.jpg')
+cl= Entity(model='quad', scale=(30,10), position=(-60, 35, 470), texture='cl.png')
 cl.rotation_y= -90
 
 def input(key):
