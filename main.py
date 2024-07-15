@@ -89,7 +89,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,-900), scale=25)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,-300), scale=25)  # Nueva posición del jugador
 Sky()
 
 def input(key):
@@ -128,13 +128,13 @@ wall_1_1.y = 225
 #----------------------------------------------------------------
 
 #Costado izquierdo
-wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "pared sala.jpeg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "is1.png", collider='box')
 wall_1_1.x = -128
 wall_1_1.z = -300
 wall_1_1.y = 120
 
 #Costado derecho
-wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "pared sala.jpeg", collider='box')
+wall_1_1 = Entity(model='cube', scale=(5, 240, 400), color=color.white, texture = "is2.png", collider='box')
 wall_1_1.x = 128
 wall_1_1.z = -300
 wall_1_1.y = 120
@@ -401,33 +401,33 @@ piso2.x = 0
 piso2.z = 50#avanzar 
 piso2.y = 0
 
-f1 = Entity(model='quad', scale=(20, 20), color=color.white, texture="f1.png", collider='box')
-f1.x = -18
+f1 = Entity(model='quad', scale=(30, 10), color=color.white, texture="f1.png", collider='box')
+f1.x = -20
 f1.z = -50
 f1.y = 62
 
-f1 = Entity(model='quad', scale=(30, 30), color=color.white, texture="f3.png", collider='box')
+f1 = Entity(model='quad', scale=(30, 10), color=color.white, texture="f3.png", collider='box')
 f1.x = 23
 f1.z = -85
 f1.y = 62
 
 
-f1 = Entity(model='quad', scale=(15, 15), color=color.white, texture="f2.png", collider='box')
-f1.x = -62
+f1 = Entity(model='quad', scale=(30, 10), color=color.white, texture="f2.png", collider='box')
+f1.x = -63
 f1.z = 2
 f1.y = 62
 
-f1 = Entity(model='quad', scale=(25, 25), color=color.white, texture="f4.png", collider='box')
+f1 = Entity(model='quad', scale=(30, 10), color=color.white, texture="f4.png", collider='box')
 f1.x = 46
 f1.z = 80
 f1.y = 55
 
-f1 = Entity(model='quad', scale=(45,45), color=color.white, texture="f5.png", collider='box')
+f1 = Entity(model='quad', scale=(40,10), color=color.white, texture="f5.png", collider='box')
 f1.x = -58
 f1.z = 175
 f1.y = 62
 
-f1 = Entity(model='quad', scale=(60,60), color=color.white, texture="f6.png", collider='box')
+f1 = Entity(model='quad', scale=(50,10), color=color.white, texture="f6.png", collider='box')
 f1.x = 50
 f1.z = 175
 f1.y = 62
