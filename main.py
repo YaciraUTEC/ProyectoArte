@@ -50,6 +50,8 @@ modelo13=load_model('cojin.obj')
 modelo14=load_model('librero.obj')
 modelo16=load_model('man_free.obj')
 
+background_music = Audio('music.mp3', loop=True, autoplay=True)
+
                                               #   (adelante,arriba o abajo,costados)
 sala = Entity(model=modelo, scale=30, texture='im.jpg', position=(-90, 10, -390))
 lampara = Entity(model=modelo1, scale=35, texture='lampara.png', position=(-90, 5, -250))
@@ -89,7 +91,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,-300), scale=25)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,-100), scale=25)  # Nueva posición del jugador
 Sky()
 
 def input(key):
