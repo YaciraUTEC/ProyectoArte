@@ -92,7 +92,7 @@ sala.rotation_y = -180  # Rotar la entidad en el eje Y
 tele.rotation_y =-90
 jarron.rotation_x =-90
 librero.rotation_y =-90
-player = FirstPersonController(speed=150, position=(0, 100,-100), scale=25)  # Nueva posición del jugador
+player = FirstPersonController(speed=150, position=(0, 100,-700), scale=20)  # Nueva posición del jugador
 Sky()
 
 def input(key):
