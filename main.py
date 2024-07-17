@@ -9,10 +9,11 @@ import time
 import os
 import cv2
 import numpy as np
-
+from ursina import Ursina, Audio, window
 
 
 app = Ursina()
+window.fullscreen = True
 modelos_glb = []
 
 def aparecer_modelo():
